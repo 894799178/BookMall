@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 需要成   包名 加sql映射文件名称(去除扩展名)-->
+<mapper namespace="/">
+    <select id="selectUserById" parameterType="int" resultType="com.webbookmall.domain.User">
+        SELECT userId,user,password,money FROM user WHERE userid = #{id}
+    </select>
+    <select id="selectUserDateById" parameterType="int" resultType="com.webbookmall.domain.UserData">
+        SELECT userDataId,userName,sex,age,email FROM userData WHERE userDataId = #{userDataId}
+    </select>
+
+    <select id="selectUserByName" parameterType="String" resultType="com.webbookmall.domain.User">
+        SELECT userId,user,password,money FROM user WHERE user = #{name}
+    </select>
+
+    <select id="selectBookById" parameterType="int" resultType="com.webbookmall.domain.Book">
+        select bookId,bookName,author,bookPrice,bookAmount from book where bookId = #{BookId}
+    </select>
+    <select id="selectBookByName" parameterType="String" resultType="com.webbookmall.domain.Book">
+        select bookId,bookName,author,bookPrice,bookAmount from book where bookName = #{bookName}
+    </select>
+
+    <select id="selectBooks"  resultType="com.webbookmall.domain.Book">
+         select bookId,bookName,author,bookPrice,bookAmount from book
+    </select>
+</mapper>
